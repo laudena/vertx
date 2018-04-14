@@ -3,6 +3,7 @@ package com.example.server1;
 
 import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue.Consumer;
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.AsyncResult;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
@@ -48,10 +49,11 @@ public class ListenerVerticle extends AbstractVerticle {
 
     eb.consumer("news-feed", message -> System.out.println("Received news on consumer 1: " + message.body()));
     
-    eb.consumer("news-feed", message -> System.out.println("Received news on consumer 2: " + message.body()));
+    //eb.consumer("news-feed", message -> System.out.println("Received news on consumer 2: " + message.body()));
     
-    eb.consumer("news-feed", message -> System.out.println("Received news on consumer 3: " + message.body()));
-
+    //eb.consumer("news-feed", message -> System.out.println("Received news on consumer 3: " + message.body()));
+    
     System.out.println("Ready!");
   }
+  
 }
