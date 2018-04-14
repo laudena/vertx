@@ -1,6 +1,8 @@
 package com.example.server1;
 
 
+import java.util.Date;
+
 import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue.Consumer;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.AsyncResult;
@@ -46,8 +48,19 @@ public class ListenerVerticle extends AbstractVerticle {
 	    	  
 	          
     EventBus eb = vertx.eventBus();
-
-    eb.consumer("news-feed", message -> System.out.println("Received news on consumer 1: " + message.body()));
+    Boolean firstTime = true;
+    
+    eb.consumer("news-feed", message -> {
+//    	if (firstTime)
+//    		{
+//    			System.out.println("Starting... " + d.getTime() + " ......");
+//    			firstTime=false;
+//    		}
+    	Date d = new Date();
+    	if (((String)message.body()).compareTo("done") == 0)
+    		System.out.println("Received final msg on " + d.getTime());
+    	
+    });
     
     //eb.consumer("news-feed", message -> System.out.println("Received news on consumer 2: " + message.body()));
     

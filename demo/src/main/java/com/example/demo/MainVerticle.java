@@ -1,6 +1,8 @@
 package com.example.demo;
 
 
+import java.sql.Time;
+import java.util.Date;
 import java.util.Random;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.eventbus.EventBus;
@@ -16,13 +18,25 @@ public class MainVerticle extends AbstractVerticle {
 
         Random rand = new Random();
         Counter count = new Counter(); 
-        vertx.setPeriodic(1000, v -> {
-        	String msg = "Some news! (" + count.Next() + ")" ;
-        	eb.publish("news-feed", msg);
-        	System.out.println("sent: " + msg);
+        //String msg = "Some news! (" + count.Next() + ")" ;
+        
+        vertx.setPeriodic(6000, v -> {
+        	//String msg = "Some news! (" + count.Next() + ")" ;
+        	//eb.publish("news-feed", msg);
+        	//System.out.println("sent: " + msg);
+        	Date d = new Date();
+        	//System.out.println("starting... " + d.getTime() + " ......");
+            for (int i=0; i<10000; i++) {
+            	String msg = "Some news! (" + count.Next() + ")" ;
+            	eb.publish("news-feed", msg);
+            }
+            eb.publish("news-feed", "done");
+            System.out.println("DONE!!!!!!!!!!!!!!!!!!! " + d.getTime()+ " ......");
+        	
         	});
-    	
-    	
+        
+        
+        
 //    	vertx.createHttpServer().requestHandler(req -> {
 //              req.response()
 //                .putHeader("content-type", "text/plain")
