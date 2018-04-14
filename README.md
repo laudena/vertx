@@ -12,6 +12,6 @@ Vert.X testing
 
 ### Run the application:
 - cd target
-- java -jar server1-1.0.0-SNAPSHOT-fat.jar _-cluster_
+- java -jar server1-1.0.0-SNAPSHOT-fat.jar **-cluster**
 
 
