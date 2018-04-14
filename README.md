@@ -1,17 +1,17 @@
-# vertx
+# Vert.X examples
 Vert.X testing
 
-# Some usefull commands:
+## Some usefull commands:
 
-## Install:
+### Install:
 - cd [...]/server1
 - mvn install
 
-## Install for offline:
+### Install for offline:
 - mvn dependency:resolve-plugins dependency:go-offline
 
-## Run the application:
+### Run the application:
 - cd target
-- java -jar server1-1.0.0-SNAPSHOT-fat.jar -cluster
+- java -jar server1-1.0.0-SNAPSHOT-fat.jar _-cluster_
 
 
